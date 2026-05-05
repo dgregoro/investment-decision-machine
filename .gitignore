@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# SQLite
+*.db
+*.sqlite3
+
+# Environment
+.env
+
+# IDE / tooling
+.idea/
+.vscode/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# uv
+uv.lock
