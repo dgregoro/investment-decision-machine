@@ -3,8 +3,17 @@ from typing import Any
 from fastapi.testclient import TestClient
 
 from app.core import database as database_module
+from app.main import app
 from app.models.enums import DecisionStatus
 from app.models.trade_decision import TradeDecision
+
+
+def test_decisions_router_registered() -> None:
+    """Regression: CRUD router must remain mounted on the FastAPI app."""
+    paths = app.openapi()["paths"]
+    assert "/decisions/" in paths
+    path_item = paths["/decisions/"]
+    assert "post" in path_item and "get" in path_item
 
 
 def _sample_create_body() -> dict[str, Any]:

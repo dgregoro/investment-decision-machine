@@ -10,6 +10,7 @@ from app.main import app
 
 @pytest.fixture(autouse=True)
 def _isolated_sqlite(monkeypatch: pytest.MonkeyPatch) -> Generator[None, None, None]:
+    """Use in-memory SQLite and drop engine state so tests never touch decision_machine.db."""
     monkeypatch.setenv("DATABASE_URL", "sqlite+pysqlite:///:memory:")
     database_module.reset_engine_registry()
     clear_settings_cache()
