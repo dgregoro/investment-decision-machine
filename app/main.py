@@ -2,6 +2,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
+from app.api.routes.decisions import router as decisions_router
 from app.api.routes.health import router as health_router
 from app.core.database import init_db
 
@@ -19,3 +20,4 @@ app = FastAPI(
 )
 
 app.include_router(health_router)
+app.include_router(decisions_router)

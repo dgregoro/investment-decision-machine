@@ -27,6 +27,8 @@ class TradeDecisionCreate(BaseModel):
 class TradeDecisionUpdate(BaseModel):
     """Partial update of an existing decision."""
 
+    model_config = ConfigDict(extra="forbid")
+
     symbol: str | None = None
     decision_type: DecisionType | None = None
     thesis_summary: str | None = None
